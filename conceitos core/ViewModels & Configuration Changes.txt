@@ -1,0 +1,23 @@
+ViewModels e Mudanças de Configuração no Android
+
+	O ViewModel é uma classe fornecida pela biblioteca Android Architecture Components, projetada para armazenar e gerenciar dados relacionados à interface do usuário (UI). Ele é essencial para lidar de forma eficiente com mudanças de configuração, como rotação de tela ou mudanças no modo escuro, sem perder o estado da interface.
+
+
+O Problema das Mudanças de Configuração:
+
+	No Android, mudanças de configuração (como rotação de tela) fazem com que a Activity ou Fragment sejam recriados. Isso significa que:
+	- O sistema destrói a instância atual da Activity/Fragment.
+	- Uma nova instância é criada e reiniciada.
+
+Principais Características do ViewModel: 
+
+	- Ciclo de Vida Prolongado: O ViewModel é vinculado ao ciclo de vida da Activity ou Fragment e sobrevive a recriações.
+
+	- Isolamento da Lógica de Negócio: Separa os dados da UI, promovendo uma arquitetura limpa (ex.: MVVM).
+
+	- Compatibilidade com Observables: Trabalha bem com LiveData para atualizar automaticamente a interface do usuário quando os dados mudam.
+
+Vantagens do ViewModel:
+	- Persistência de Dados: Evita a perda de dados durante mudanças de configuração.
+	- Separação de Responsabilidades: A lógica de negócios fica isolada do código da UI.
+	- Melhor Gerenciamento de Ciclo de Vida: Os dados permanecem vivos enquanto a Activity ou Fragment existir no Back Stack.
