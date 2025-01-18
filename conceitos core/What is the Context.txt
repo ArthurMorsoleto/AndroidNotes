@@ -1,0 +1,43 @@
+
+O que é o Context no Android?
+	
+	No Android, o Context é uma classe abstrata que atua como um ponto de acesso para recursos e serviços do sistema. Ele permite que os componentes do aplicativo (como Activities, Services e Broadcast Receivers) interajam com o sistema operacional Android para acessar recursos, iniciar outras atividades, gerenciar serviços, entre outros.
+	Ele funciona como uma ponte entre os componentes do aplicativo e o sistema Android.
+
+Principais Responsabilidades do Context
+
+	1. Acessar Recursos do Aplicativo: Recuperar strings, layouts, imagens, cores e outros recursos.
+	2. Acessar Serviços do Sistema: Permite acessar serviços do sistema como LocationManager, ClipboardManager ou ConnectivityManager.
+	3. Iniciar Componentes: Pode iniciar Activities, Services e enviar Intents para Broadcast Receivers.
+	4. Gerenciar Arquivos e Preferências: Fornece acesso ao sistema de arquivos e SharedPreferences.
+
+Tipos de Context no Android
+
+	- Application Context (getApplicationContext())
+	- Activity Context
+	- Service Context
+	- Base Context
+
+Como Evitar Vazamentos de Memória com o Context:
+
+	1. Não use Activity Context em objetos de longa duração:
+	
+	Evite passar o contexto de uma Activity para um Singleton ou Thread, pois a Activity pode ser destruída enquanto o Singleton ainda mantém a referência.
+
+	2. Use Application Context para operações globais
+
+	Prefira getApplicationContext() quando não precisar interagir com a interface do usuário ou quando o objeto durar mais que a Activity.
+
+	3. Limpar listeners e callbacks
+
+	Certifique-se de desregistrar listeners em onDestroy() ou eventos semelhantes.
+
+
+Resumo
+	O Context é uma parte essencial do Android, usado para acessar recursos, iniciar componentes e interagir com o sistema. No entanto, o uso correto do tipo de Context é crucial para evitar problemas de desempenho e vazamentos de memória.
+
+	Application Context: Para operações globais e de longa duração.
+	Activity Context: Para operações relacionadas à UI de uma Activity.
+	Service Context: Para serviços em segundo plano.
+	
+	Compreender e utilizar o Context adequadamente é fundamental para o desenvolvimento eficiente de aplicativos Android.
