@@ -1,0 +1,52 @@
+Diferença entre data class e class no Kotlin:
+
+	No Kotlin, há dois tipos principais de classes usadas para representar objetos: data class e class. Embora ambas sejam classes, elas têm propósitos e comportamentos diferentes.
+
+1. class (Classe Regular)
+	Uma classe regular é a estrutura básica de uma classe em Kotlin. Ela serve para modelar objetos com funcionalidades personalizadas, métodos e propriedades.
+
+	Características:
+		- Não gera automaticamente métodos como equals(), hashCode() ou toString().
+		- Necessita de implementação manual desses métodos se necessário.
+		- É ideal para classes que têm lógica de negócio ou comportamento complexo.
+
+class Pessoa(val nome: String, val idade: Int)
+
+2. data class
+	Uma data class é usada principalmente para armazenar dados. O compilador do Kotlin gera automaticamente implementações para métodos comuns, tornando-a ideal para representar objetos cujo principal propósito é manter informações.
+
+	Características:
+		- Gera automaticamente:
+			equals() – Compara dois objetos com base nos valores de suas propriedades.
+			hashCode() – Retorna um código hash baseado nos valores das propriedades.
+			toString() – Retorna uma representação legível do objeto.
+			copy() – Permite criar uma cópia de um objeto com algumas propriedades alteradas.
+			Desestruturação – Suporta a extração de valores das propriedades principais.
+
+	Requisitos:
+		- Deve ter pelo menos um parâmetro no construtor primário.
+Os parâmetros do construtor primário devem ser marcados como val ou var.
+
+
+Principais Diferenças:
+
+- Propósito
+	class -> Modelar lógica de negócios e comportamento.
+	data class -> Representar e manipular dados simples.
+
+- Métodos Gerados	
+	class -> Não gera métodos automaticamente.	
+	data class -> Gera automaticamente equals(), hashCode(), toString(), e copy().
+
+- Comparação
+	class -> Compara referências por padrão.	
+	data class -> Compara valores das propriedades.
+
+- Desestruturação
+	class -> Não suportada por padrão.	
+	data class -> Suportada automaticamente.
+
+- Construtuor primário
+	class -> Não exige propriedades (val ou var).	
+	data class -> Exige pelo menos uma propriedade (val ou var).
+
