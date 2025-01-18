@@ -1,0 +1,39 @@
+Activity: 
+
+	- componente que representa uma unica tela para interface de usuário. Serve como ponto de entrada para interações e gerenciamento de elementos visuais.
+
+Activity Lifecycle: 
+
+	- descreve os diferentes estados de uma activity - crucial para gerenciar recursos, atualizar interface e manter o app eficiente.
+
+Estados do Ciclo de Vida:]
+
+	- Criada (Created): A Activity é inicializada, mas ainda não está visível para o usuário.
+	- Iniciada (Started): A Activity está visível, mas o usuário ainda não pode interagir.
+	- Retomada (Resumed): A Activity está em primeiro plano e interativa.
+	- Pausada (Paused): A Activity está parcialmente visível (e.g., um diálogo sobreposto).
+	- Parada (Stopped): A Activity não está visível.
+	- Destruída (Destroyed): A Activity é encerrada e removida da memória.
+
+Principais Métodos do Ciclo de Vida:
+
+	- onCreate(): chamado quando uma activity é inicializada, inicializa a UI, vincula dados e configurar recursos.
+	- onStart(): quando a activity está visível, porém ainda não possui interação - pode ser usada para atualizar interface.
+	- onResume(): quando activity está em primeiro plano e interativa. Ideal para reinciar animações ou listeners.
+	- onPause(): quando a activty perde o foco, mas está parcialmente visível - use para pausar animações, salvar dados temporários ou pausar tarefas em andamento.
+	- onStop():  quando a activity não está mais visível, está em segundo plano(app foi minimizado), ou outra activity foi acionada. Ideal para liberar recursos ou salvar o estado atual
+	- onDestroy(): quando a tela é encerrada - ponto final para realizar limpeza
+	- onRestart(): quando a activity volta a ser visível após ser parada
+
+Fluxo Típico do Ciclo de Vida:
+
+Ao iniciar o aplicativo: onCreate() → onStart() → onResume()
+Quando o usuário sai: onPause() → onStop()
+Quando o usuário retorna: onRestart() → onStart() → onResume()
+Quando a Activity é destruída: onPause() → onStop() → onDestroy()
+
+Pontos Importantes:
+
+	- Gerenciamento de Recursos: Libere recursos em onPause() ou onStop() para evitar vazamentos de memória.
+	- Mudanças de Configuração: Utilize onSaveInstanceState() para salvar dados temporários durante mudanças, como rotação de tela.
+	- Depuração: Use logs ou ferramentas de monitoramento para entender as transições entre estados.
