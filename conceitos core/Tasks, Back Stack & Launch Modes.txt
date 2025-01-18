@@ -1,0 +1,27 @@
+Tasks, Back Stack e Launch Modes no Android:
+
+	- conceitos que ajudam a criar fluxos de navegação consistentes e melhorar a experiência do usuário.
+
+
+Task: 
+	- coleção de activities organizadas em uma pilha (Back Stack) que o usuário interage como uma única unidade.
+
+
+Back Stack:
+	- pilha de activities associadas a uma Task. LIFO (Last In, First Out)
+
+
+Launch Modes:
+	- controlam como as atividades são lançadas e manipuladas no Back Stack. Eles são configurados no arquivo AndroidManifest.xml ou no código usando Intent flags.
+	1. standard (Modo Padrão): Cada chamada para a Activity cria uma nova instância.
+	2. singleTop: Se a Activity já estiver no topo da pilha, não será criada uma nova instância. Usado para evitar duplicatas quando a Activity é frequentemente acessada.
+	3. singleTask: Garante que apenas uma instância da Activity exista em toda a Task. Se a Activity já estiver na pilha, todas as atividades acima dela serão removidas.
+	4. singleInstance: Similar ao singleTask, mas a Activity terá sua própria Task dedicada. Ideal para atividades que precisam ser completamente isoladas.
+
+
+Resumo
+	Task: Agrupamento de atividades gerenciado pelo sistema.
+	Back Stack: Pilha de atividades dentro de uma Task, com comportamento LIFO.
+	Launch Modes: Controlam como atividades são gerenciadas no Back Stack (standard, singleTop, singleTask, singleInstance).
+	Flags: Oferecem controle adicional para manipular Tasks e Back Stacks.
+Com esses conceitos, é possível criar fluxos de navegação otimizados e consistentes no Android!
