@@ -1,0 +1,42 @@
+1. Comunicação
+
+	+ explicar ideias técnicas de forma clara e objetiva
+	- tempo para compreender e elaborar uma explicação dependendo do cenário. 
+	- necessidade de um "roteiro": entender o problemas, listar as possíveis causas, bolar um plano de resolução.
+ex: problema com kit de segurança -> param que não podia ser vazio/null no iOS.
+
+2. Trabalho em equipe + senso de responsabilidade por todos no time
+
+	+ colaboração com outros desenvolvedores, designers, gerentes de produto e clientes. 
+	+ Aceitar feedback -> técnico e comportamental
+	+ Ajudar colegas -> muita gratificante ajudar um colega a solucionar um problema em questão
+	+ Resolver conflitos de forma positiva
+	+ A autonomia e a responsabilidade são cruciais para atingir metas e gerar confiança.
+
+3. Resolução de problemas
+
+	+ Essencialmente, resolver problemas por meio de código é a função da área de tecnologia
+	+ Diagnosticar bugs, encontrar soluções inovadoras e identificar a raiz de problemas complexos.
+
+4. Adaptabilidade
+
+	- Adaptar a novas ferramentas, linguagens e metodologias.
+	- Ex: Aprender um novo framework ou ajustar-se a mudanças em projetos ou prioridades.
+	- As vezes, pode ser difícil sair da zona de conforto. Ex: Beagle -> framework cosntruído pela Zup para construção de UI, baseado em Server-Driven. Na época, eu não estava me preparando antes de começar e implementar a POC. 
+
+5. Inteligência emocional
+
+	- sou uma pessoa ansiosa, em situações de trabalho sob pressão posso ter problemas de desempenho.
+
+6. Abertura ao aprendizado
+
+	+ indústria de tecnologia exige aprendizado contínuo, e estar disposto a aprender é uma vantagem competitiva.
+
+7. Empatia
+
+	+ ajudar um colega que está enfrentando dificuldades.
+	+ quando estamos muito tempo atuando em um projeto, é normal ser acionado para auxiliar no onboarding de um novo colega -> tenho o costume de favoritar as principais docs do projeto e estudar junto com colega.
+	+ as vezes, ao explicar alguma parte do projeto, é possível visualizar melhorias e até problemas escondidos. ex: Loading único: template que estava com layout sobrecarregado - solução foi remover o fragment quando o usuário estava consumindo o fluxo da webView. 
+
+
+	
