@@ -1,0 +1,45 @@
+Intents & Intent Filters
+
+	No Android, Intents e Intent Filters são conceitos fundamentais usados para comunicação entre componentes do aplicativo (como Activities, Services e Broadcast Receivers) e até mesmo entre aplicativos diferentes.
+
+O que é um Intent?
+
+	Um Intent é um objeto que descreve uma operação a ser executada. Ele é usado para:
+	- Iniciar uma Activity.
+	- Iniciar um Service.
+	- Enviar ou receber um Broadcast.
+
+Tipos de Intents
+
+	1. Explicit Intent: Especifica diretamente o componente que deve ser iniciado. Usado para comunicação dentro do mesmo aplicativo.
+	2. Implicit Intent: Não especifica diretamente o componente a ser executado, mas declara uma ação a ser realizada. O Android identifica os componentes que podem tratar essa ação. Usado para comunicação entre diferentes aplicativos.
+
+
+Elementos de um Intent
+
+	1. Action
+	2. Category
+	3. Data
+	4. Extras
+	5. Flags
+
+
+O que é um Intent Filter?
+
+	Um Intent Filter permite que um componente declare as intenções que pode atender. Ele é configurado no arquivo AndroidManifest.xml e define quais ações, tipos de dados e categorias um componente suporta.
+
+
+Como Funcionam os Intents e Intent Filters
+
+	1. Quando um Implicit Intent é enviado, o sistema Android verifica os Intent Filters registrados para encontrar um componente que corresponda ao Intent.
+	2. Se mais de um componente puder atender ao Intent, o Android exibe um chooser para o usuário selecionar.
+
+
+Resumo
+	
+	Intent é um objeto para comunicar ações e dados entre componentes.
+
+		- Explicit Intent: Comunicação direta dentro do mesmo app.
+		- Implicit Intent: Comunicação entre aplicativos, baseada em ações.
+Intent Filter é usado para declarar quais ações e dados um componente pode tratar.
+

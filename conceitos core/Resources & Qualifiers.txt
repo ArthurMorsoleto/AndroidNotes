@@ -1,0 +1,35 @@
+Resources & Qualifiers no Android
+
+	O Android permite armazenar recursos como layouts, strings, imagens, dimensões, cores e outros tipos de dados em arquivos separados, geralmente localizados no diretório res/. Esses recursos podem ser acessados e usados em diferentes partes do aplicativo. Para melhorar a experiência do usuário em dispositivos variados (diferentes tamanhos de tela, idiomas, densidades, etc.), o Android utiliza qualificadores de recursos.
+
+O que são Resources no Android?
+	
+	Os Resources (ou recursos) são todos os arquivos auxiliares que ajudam na construção da interface do usuário e na personalização do aplicativo. Esses arquivos estão organizados em subdiretórios dentro de res/ e incluem:
+
+	- Drawable: Arquivos de imagem ou vetores (res/drawable/).
+	- Layout: Arquivos de layout XML para definir a estrutura das telas (res/layout/).
+	- String: Textos e strings traduzíveis (res/values/strings.xml).
+	- Colors: Definição de cores (res/values/colors.xml).
+	- Dimensions: Tamanhos e espaçamentos (res/values/dimens.xml).
+	- Raw: Arquivos de áudio ou vídeo (res/raw/).
+	- Anim: Arquivos de animação (res/anim/).
+	- Menu: Arquivos de menu XML (res/menu/).
+
+Qualifiers de Recursos
+	
+	Os qualificadores permitem criar versões alternativas de recursos com base em características específicas do dispositivo, como idioma, tamanho de tela, densidade, orientação, etc.
+
+Principais Qualificadores
+
+	1. Idioma e Região
+	2. Tamanho e Densidade de Tela
+	3. Orientação
+	4. Dimensões do Layout
+	5. Modo Noturno
+	6. Qualidade da Tela
+	7. Plataforma/Versão
+
+
+Conclusão
+	
+	Os Resources & Qualifiers são uma das ferramentas mais poderosas no desenvolvimento Android para criar aplicativos que oferecem uma experiência personalizada e otimizada para diferentes dispositivos, idiomas e condições. Qualifiers melhoram significativamente a usabilidade e acessibilidade do aplicativo.
