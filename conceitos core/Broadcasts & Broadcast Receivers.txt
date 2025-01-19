@@ -1,0 +1,25 @@
+Broadcasts & Broadcast Receivers
+
+	- Broadcasts são mensagens assíncronas que permitem a comunicação entre o sistema e ou entre diferentes aplicativos
+	- Broadcast Receiver é um componente que escuta essas mensagens e consegue executar uma ação específica. Pode ser estático(AndroidManifest) ou dinâmico (tempo de execução)
+
+Exemplos:
+	Intent.ACTION_BATTERY_LOW: Notifica que a bateria está baixa.
+	Intent.ACTION_BOOT_COMPLETED: Indica que o dispositivo foi inicializado.
+
+Custom Broadcasts:
+	- Mensagens enviadas por aplicativos para comunicar eventos específicos. Porém é necessários registrar a action/category para o componente que irá receber a mensagem.
+
+Importante: Para evitar vazamentos de memória, desregistre o Receiver
+	unregisterReceiver(meuReceiver)
+
+
+Resumo
+	* Broadcasts permitem comunicação entre componentes e aplicativos.
+	* Broadcast Receivers escutam eventos de broadcast e executam ações correspondentes.
+	* Use registro estático para eventos globais e permanentes (como BOOT_COMPLETED).
+	* Use registro dinâmico para eventos enquanto o app está em execução.
+	* Para evitar problemas de desempenho e segurança, prefira:
+		LocalBroadcastManager para comunicação interna.
+		Métodos modernos como WorkManager para tarefas longas.
+
