@@ -4,7 +4,7 @@
 	- tempo para compreender e elaborar uma explicação dependendo do cenário. 
 	- necessidade de um "roteiro": entender o problemas, listar as possíveis causas, bolar um plano de resolução.
 ex: problema com kit de segurança -> param que não podia ser vazio/null no iOS.
-
+ba
 2. Trabalho em equipe + senso de responsabilidade por todos no time
 
 	+ colaboração com outros desenvolvedores, designers, gerentes de produto e clientes. 
