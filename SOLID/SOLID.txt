@@ -1,0 +1,39 @@
+SOLID - cinco princípios da programação orientada a objetos
+
+objetivo melhorar a manutenibilidade, flexibilidade e escalabilidade do código
+
+Resumo:
+	1. Responsabilidade Única: Código mais modular e fácil de entender.
+	2. Aberto/Fechado: Facilita a adição de funcionalidades sem modificar código existente.
+	3. Substituição de Liskov: Evita erros ao substituir classes.
+	4. Segregação de Interfaces: Classes não são sobrecarregadas com métodos desnecessários.
+	5. Inversão de Dependência: Torna o código flexível e independente de implementações específicas.
+
+
+1. Princípio da Responsabilidade Única (Single Responsibility Principle - SRP)
+
+	Definição: Uma classe deve ter apenas uma única responsabilidade ou razão para mudar.
+
+2. Princípio do Aberto/Fechado (Open/Closed Principle - OCP)
+
+	Definição: Uma classe deve estar aberta para extensão, mas fechada para modificação.
+
+3. Princípio da Substituição de Liskov (Liskov Substitution Principle - LSP)
+
+	Definição: Uma subclasse deve ser substituível por sua superclasse sem alterar o comportamento esperado. Em outras palavras, subclasses não devem violar a lógica estabelecida pela classe pai.
+
+4. Princípio da Segregação de Interfaces (Interface Segregation Principle - ISP)
+
+	Definição: Uma classe não deve ser obrigada a implementar métodos que não utiliza. Dividimos a interface em responsabilidades menores.
+
+5. Princípio da Inversão de Dependência (Dependency Inversion Principle - DIP)
+
+	Definição: Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações. Usamos abstrações para tornar a dependência flexível.
+
+	A Injeção de Dependência é uma técnica que implementa o DIP
+
+
+
+
+
+
