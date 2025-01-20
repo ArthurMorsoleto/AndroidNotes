@@ -1,0 +1,18 @@
+Android Checklist
+
+- Network library - Retrofit/Volley/OkHttp
+- Image Loading - Glide/Picasso]
+- Threading - Coroutines/Picasso
+- Views - Compose/XML + ViewBinding
+- Data Persistence - Room/Realm/GreenDAO/ORMLite
+- Dependency Injection - Dagger/Hilt/Koin
+- Algorithms and Data Structures - HashMap/LinkedList/Trie/Hashset
+- Firebase - Crashlytics/Firebase Console/Remote Config
+- Debugging
+- Analytics - Braze/Flurry/Firebase/GA4
+- Push Notifications
+- Deeplink
+- Refactoring
+- Testing
+
+
