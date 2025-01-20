@@ -1,0 +1,44 @@
+WorkManager 
+
+	- Api projetada para gerenciar tarefas em segundo plano de maneira confiável, mesmo se o aplicativo for fechado.
+
+Características do WorkManager
+
+	- Confiabilidade: Garante que a tarefa será concluída.
+	- Persistência: Tarefas permanecem agendadas, mesmo após a reinicialização do dispositivo.
+	- Flexibilidade: Pode definir restrições, como executar apenas com Wi-Fi ou quando o dispositivo estiver ocioso.
+	- Compatibilidade: Funciona em dispositivos com Android 5.0 (API 21) ou superior.
+
+Tipos de WorkRequest
+
+	- OneTimeWorkRequest: Usado para tarefas que devem ser executadas uma única vez.
+	- PeriodicWorkRequest: tarefas repetitivas com intervalos regulares (mínimo de 15 minutos).
+
+Casos de Uso do WorkManager
+
+	- Sincronização de dados: Atualizar o banco de dados local com dados do servidor.
+	- Upload de arquivos: Enviar imagens ou vídeos para o servidor.
+	- Backup periódico: Fazer cópias de segurança regularmente.
+	- Envio de relatórios: Gerar e enviar relatórios automaticamente.
+
+Adicionando Restrições ao Trabalho: Você pode definir condições sob as quais o trabalho será executado.
+
+val constraints = Constraints.Builder()
+    .setRequiredNetworkType(NetworkType.CONNECTED) // Executar apenas com conexão de rede
+    .setRequiresCharging(true)                    // Executar apenas enquanto carrega
+    .build()
+
+val workRequest = OneTimeWorkRequestBuilder<MyWorker>()
+    .setConstraints(constraints)
+    .build()
+
+WorkManager.getInstance(context).enqueue(workRequest)
+
+Passando Dados para o Worker: Se você precisa enviar dados para o trabalho, pode usar o Data
+
+Monitorando o Status do Trabalho: getWorkInfoByIdLiveData
+
+Encadeando Trabalhos: É possível encadear vários trabalhos para serem executados em sequência
+
+Cancelando Trabalhos: Você pode cancelar um trabalho em execução ou agendado
+	
