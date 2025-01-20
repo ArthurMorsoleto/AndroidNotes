@@ -1,0 +1,23 @@
+Services e Foreground Services são componentes para executar tarefas em background
+
+
+1. Services
+	
+	componente que executa operações em segundo plano sem fornecer uma interface visual para o usuário.
+
+	Características principais:
+		- Executado em segundo plano.
+		- Continua funcionando mesmo que o usuário troque de aplicativo, desde que o sistema não precise liberar memória.
+		- É usado para tarefas longas, como sincronização de dados ou download.	
+		- Não é visível ao usuário, a menos que combinado com notificações.
+
+
+2. Foreground Services
+
+	tipo especial de serviço que tem maior prioridade e é associado a uma notificação persistente.
+
+	Usado para tarefas que o usuário deve estar ciente, como reprodução de música, GPS ou upload contínuo.
+	
+	Requer exibição de uma notificação enquanto o serviço está em execução.
+
+	
