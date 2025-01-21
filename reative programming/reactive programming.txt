@@ -1,0 +1,39 @@
+Programação Reativa (Reactive Programming)
+
+    conceito de trabalhar fluxos de dados assíncronos
+
+Principais ferramentas:
+    RxJava (Reactive Extensions for Java)
+    Kotlin Coroutines (com Flow e StateFlow)
+    LiveData (integrado ao Jetpack)
+
+Por que usar Programação Reativa no Android?
+
+    - Ciclo de vida seguro: ajudam a evitar vazamentos de memória.
+    - Interação em tempo real
+    - Composição de fluxos: combinar e transformar dados complexos        
+
+1. RxJava
+
+    Baseado em Observables (emissão) e Observers (consumo)
+
+    Principais componentes:
+        - Observable: Produz uma sequência de dados.
+        - Observer: Consome os dados emitidos pelo Observable.
+        - Operators: Transformam ou filtram dados (ex.: map, filter).
+        - Schedulers: Controlam em qual thread o código será executado (Schedulers.io(), Schedulers.computation()).
+
+2. Kotlin Coroutines e Flow
+
+    Principais componentes:
+        - Flow: Produz valores de forma assíncrona.
+        - StateFlow: Um Flow especial para gerenciar estados imutáveis.
+        - SharedFlow: Para eventos que não precisam ser armazenados.
+        - collect: Consumidor dos dados emitidos.
+        - Controlado por Dispatchers
+
+3. LiveData 
+
+    - alternativa ao StateFlow
+    - Integrada ao ciclo de vida, evitando problemas de memória.
+
