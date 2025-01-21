@@ -1,0 +1,19 @@
+Managers
+
+    classes que fornecem funcionalidades específicas para gerenciar diferentes aspectos do sistema operacional
+
+- AudioManager: gerenciar volumes
+
+- ConnectivityManager: verificar se há conexão ativa e monitorar mudanças de conectividade.
+
+- LocationManager: acessar os provedores de localização
+
+- SensorManager: Gerencia os sensores disponíveis no dispositivo
+
+- NotificationManager: criar, exibir e gerenciar notificações
+
+- StorageManager: armazenamento de arquivos
+
+- AlarmManager
+
+- WifiManager
