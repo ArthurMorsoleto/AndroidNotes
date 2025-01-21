@@ -1,0 +1,24 @@
+Testing: garantir que seu aplicativo funcione corretamente, seja confiável e mantenha a qualidade em diferentes cenários. 
+
+Ferramentas de Teste em Android
+
+    1. JUnit
+        - Framework padrão para testes de unidade.
+        - Fácil de usar para lógica de negócios ou validações simples.
+
+    2. Mockito ou mockk
+        - Framework para criar mocks e stubs.
+        - Simular dependências e comportamentos de objetos complexos.
+    
+    3. Espresso
+        - testes de UI.
+        - validar elementos da interface.
+    
+    4. Roboletric
+        - testes instrumentados localmente, sem a necessidade de um emulador ou dispositivo.
+
+    5. Jetpack Compose Testing
+        - componentes da interface no Jetpack Compose.
+
+    6. Kotlinx Coroutines Test
+        - código assíncrono usando coroutines.
