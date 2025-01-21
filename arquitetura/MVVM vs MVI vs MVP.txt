@@ -1,0 +1,167 @@
+MVVM / MVP / MVI
+
+padrões de arquitetura amplamente usados no desenvolvimento de aplicativos Android. Eles ajudam a organizar o código, separar responsabilidades e melhorar a testabilidade.
+
+MVP:
+    Complexidade:   Moderada
+    Gerenciamento:  Presenter gerencia a lógica.
+    Testabilidade:  Alta
+    Comunicação:    View chama o Presenter.
+    Reatividade:    Menos reativo.	
+
+MVVM:
+    Complexidade:   Moderada
+    Gerenciamento:  ViewModel gerencia o estado.
+    Testabilidade:  Alta
+    Comunicação:    View observa o ViewModel.
+    Reatividade:    Altamente reativo (LiveData).
+
+MVI:
+    Complexidade:   Moderada
+    Gerenciamento:  Modelo unidirecional com Intents.
+    Testabilidade:  Alta
+    Comunicação:    View envia Intents e observa o estado.
+    Reatividade:    Altamente reativo (StateFlow).	
+
+1. MVP (Model-View-Presenter): divide a aplicação em três camadas:
+
+    Componentes:        
+        - Model: Responsável pelos dados e pela lógica de negócios. Pode ser um banco de dados, repositórios ou APIs.
+        
+        - View: Exibe a interface do usuário e interage com o usuário.Passa eventos para o Presenter.
+
+        - Presenter: Atua como intermediário entre o Model e a View.Recebe eventos da View, interage com o Model e atualiza a View.
+
+    interface MainView {
+        fun showData(data: String)
+        fun showError(message: String)
+    }
+
+    class MainActivity : AppCompatActivity(), MainView {
+        private lateinit var presenter: MainPresenter
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
+
+            presenter = MainPresenter(this)
+            presenter.loadData()
+        }
+
+        override fun showData(data: String) {
+            println("Dados recebidos: $data")
+        }
+
+        override fun showError(message: String) {
+            println("Erro: $message")
+        }
+    }
+
+    class MainPresenter(private val view: MainView) {
+        fun loadData() {
+            val data = "Dados do servidor" // Simulação
+            if (data.isNotEmpty()) {
+                view.showData(data)
+            } else {
+                view.showError("Nenhum dado encontrado")
+            }
+        }
+    }
+
+2. MVVM (Model-View-ViewModel): uma classe que atua como intermediária entre o Model e a View. Ele gerencia o estado e expõe dados para a View, geralmente por meio de LiveData ou StateFlow.
+
+    Componentes:
+        - Model: Armazena e manipula os dados (semelhante ao MVP).
+        - View: Observa o estado do ViewModel e reflete as mudanças na interface.
+        - ViewModel: Gerencia o estado e a lógica de apresentação.
+Comunica-se com o Model e fornece os dados para a View.
+
+    class MainActivity : AppCompatActivity() {
+        private lateinit var viewModel: MainViewModel
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
+
+            viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+            viewModel.data.observe(this) { data ->
+                println("Dados recebidos: $data")
+            }
+
+            viewModel.fetchData()
+        }
+    }
+
+    class MainViewModel : ViewModel() {
+        private val repository = Repository()
+        val data = MutableLiveData<String>()
+
+        fun fetchData() {
+            data.value = repository.getData()
+        }
+    }
+
+    class Repository {
+        fun getData(): String {
+            return "Dados do servidor"
+        }
+    }
+
+3. MVI (Model-View-Intent): ciclo unidirecional para gerenciar o estado da interface. Cada interação do usuário gera uma Intent que é processada pelo Model, e o estado atualizado é refletido na View.
+
+    Componentes
+        - Model: Contém o estado atual e a lógica de negócios.
+        - View: Renderiza o estado atual e dispara intents (ações do usuário).
+        - Intent
+        Representa ações ou eventos do usuário que afetam o estado.
+
+    Fluxo no MVI
+        1 - Usuário interage com a View, gerando uma Intent.
+        2 - Intent é processada pelo Model, que atualiza o estado.
+        3 - Estado atualizado é refletido na View.
+
+    class MainViewModel : ViewModel() {
+        private val _state = MutableStateFlow(ViewState())
+        val state: StateFlow<ViewState> = _state
+
+        fun processIntent(intent: UserIntent) {
+            when (intent) {
+                is UserIntent.LoadData -> {
+                    val data = "Dados do servidor" // Simulação
+                    _state.value = ViewState(data = data)
+                }
+            }
+        }
+    }
+
+    sealed class UserIntent {
+        object LoadData : UserIntent()
+    }
+
+    class MainActivity : AppCompatActivity() {
+        private lateinit var viewModel: MainViewModel
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
+
+            viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+            lifecycleScope.launchWhenStarted {
+                viewModel.state.collect { state ->
+                    if (state.error != null) {
+                        println("Erro: ${state.error}")
+                    } else {
+                        println("Dados recebidos: ${state.data}")
+                    }
+                }
+            }
+
+            // Disparar Intent
+            viewModel.processIntent(UserIntent.LoadData)
+        }
+    }
+
+
+
