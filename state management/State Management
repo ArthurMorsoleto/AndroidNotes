@@ -1,0 +1,36 @@
+Por que a Gestão de Estado é Importante?
+
+    desenvolvimento de aplicativos robustos, escaláveis e responsivos.
+    manter a interface consistente e sincronizada com a lógica de negócios.
+
+Ferramentas State Management
+
+1. ViewModel
+
+    Sobrevive a mudanças de configuração, como rotações de tela.
+    armazena e gerencia o estado relacionado à interface do usuário.
+
+2. Compose State
+
+    gerenciar o estado diretamente nos componentes -> mutableStateOf
+    Para gerenciar estados locais dentro de um composable.
+
+3. StateFlow e SharedFlow
+
+    Parte da biblioteca de coroutines do Kotlin.
+    gerenciar estados de forma reativa.
+
+4. LiveData
+
+    usado para armazenar e observar dados. 
+    expor e observar estados de forma assíncrona.
+    atrelado ao ciclo de vida da view
+
+    viewModel.count.observe(viewLifecycleOwner) { count ->
+        textView.text = "Contador: $count"
+    }
+
+Boas Práticas
+    Centralize o estado
+    Evite estados duplicados
+
