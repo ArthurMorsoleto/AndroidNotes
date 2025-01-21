@@ -1,7 +1,7 @@
 Android Checklist
 
 - Network library - Retrofit/Volley/OkHttp
-- Image Loading - Glide/Picasso]
+- Image Loading - Glide/Picasso
 - Threading - Coroutines/Picasso
 - Views - Compose/XML + ViewBinding
 - Data Persistence - Room/Realm/GreenDAO/ORMLite

@@ -1,0 +1,149 @@
+Padrões de Projeto
+
+Soluções reutilizáveis que ajudam a escrever código mais estruturado, flexível e fácil de manter. 
+
+1. Padrões Criacionais: criar objetos de forma controlada e flexível.
+
+1.1 Singleton: Garante que uma classe tenha apenas uma instância e fornece um ponto global de acesso a ela.
+
+object Singleton {
+    var count = 0
+
+    fun showMessage() {
+        println("Singleton instância acessada. Contagem: $count")
+    }
+}
+
+// Uso:
+Singleton.count++
+Singleton.showMessage()
+
+1.2 Factory Method: Define uma interface para criar objetos, mas permite que subclasses decidam qual classe instanciar.
+
+interface Button {
+    fun render()
+}
+
+class WindowsButton : Button {
+    override fun render() {
+        println("Renderizando botão no estilo Windows")
+    }
+}
+
+class MacOSButton : Button {
+    override fun render() {
+        println("Renderizando botão no estilo MacOS")
+    }
+}
+
+abstract class Dialog {
+    abstract fun createButton(): Button
+
+    fun render() {
+        val button = createButton()
+        button.render()
+    }
+}
+
+class WindowsDialog : Dialog() {
+    override fun createButton(): Button = WindowsButton()
+}
+
+class MacOSDialog : Dialog() {
+    override fun createButton(): Button = MacOSButton()
+}
+
+// Uso:
+val dialog: Dialog = WindowsDialog()
+dialog.render()
+
+1.3 Builder: Constrói objetos complexos passo a passo.
+
+val car = CarBuilder()
+    .setBrand("Tesla")
+    .setSeats(4)
+    .setEngine("Elétrico")
+    .build()
+
+2. Padrões Estruturais: Os padrões estruturais tratam da composição de classes e objetos.
+
+2.1 Adapter: Converte a interface de uma classe em outra que o cliente espera.
+
+2.2 Decorator: Adiciona funcionalidades a objetos dinamicamente.
+
+interface Coffee {
+    fun cost(): Double
+    fun description(): String
+}
+
+class BasicCoffee : Coffee {
+    override fun cost() = 5.0
+    override fun description() = "Café básico"
+}
+
+class MilkDecorator(private val coffee: Coffee) : Coffee {
+    override fun cost() = coffee.cost() + 2.0
+    override fun description() = coffee.description() + ", com leite"
+}
+
+class SugarDecorator(private val coffee: Coffee) : Coffee {
+    override fun cost() = coffee.cost() + 1.0
+    override fun description() = coffee.description() + ", com açúcar"
+}
+
+// Uso:
+var coffee: Coffee = BasicCoffee()
+coffee = MilkDecorator(coffee)
+coffee = SugarDecorator(coffee)
+
+println("${coffee.description()} custa ${coffee.cost()}")
+
+3. Padrões Comportamentais:  lidam com interações e responsabilidades entre objetos.
+
+3.1 Observer: Permite que objetos sejam notificados sobre mudanças em outro objeto.
+
+3.2 Strategy: Define uma família de algoritmos e permite que eles sejam trocados dinamicamente.
+
+interface PaymentStrategy {
+    fun pay(amount: Double)
+}
+
+class CreditCardPayment : PaymentStrategy {
+    override fun pay(amount: Double) {
+        println("Pagamento de $amount realizado com cartão de crédito.")
+    }
+}
+
+class PayPalPayment : PaymentStrategy {
+    override fun pay(amount: Double) {
+        println("Pagamento de $amount realizado via PayPal.")
+    }
+}
+
+class ShoppingCart(private var paymentStrategy: PaymentStrategy) {
+    fun checkout(amount: Double) {
+        paymentStrategy.pay(amount)
+    }
+
+    fun setPaymentStrategy(strategy: PaymentStrategy) {
+        paymentStrategy = strategy
+    }
+}
+
+// Uso:
+val cart = ShoppingCart(CreditCardPayment())
+cart.checkout(100.0)
+
+cart.setPaymentStrategy(PayPalPayment())
+cart.checkout(200.0)
+
+
+
+
+
+
+
+
+
+
+
