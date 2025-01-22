@@ -1,0 +1,46 @@
+Content Providers
+
+    compartilhar dados entre aplicativos ou entre o proprio app
+
+
+Acessando um Content Provider com ContentResolver
+
+    val cursor = contentResolver.query(
+        NotesProvider.CONTENT_URI,
+        arrayOf("id", "title", "content"), // Projeção
+        null,                             // Seleção
+        null,                             // Argumentos de Seleção
+        "title ASC"                       // Ordem
+    )
+
+    cursor?.use {
+        while (it.moveToNext()) {
+            val id = it.getInt(it.getColumnIndexOrThrow("id"))
+            val title = it.getString(it.getColumnIndexOrThrow("title"))
+            println("Note: $id - $title")
+        }
+    }
+
+Provedores de Conteúdo no Sistema Android
+
+    O Android já inclui diversos Content Providers integrados para acessar dados do sistema:
+
+    Contatos:
+
+        URI: content://contacts/people
+        Exemplo: Acessar contatos do usuário.
+    
+    Mídia (Imagens, Vídeos, Áudios):
+
+        URI: content://media/external/images/media
+        Exemplo: Recuperar imagens armazenadas no dispositivo.
+    
+    Configurações:
+
+        URI: content://settings/system
+        Exemplo: Ler ou atualizar configurações do sistema.
+    
+    Mensagens SMS:
+
+        URI: content://sms/inbox
+        Exemplo: Ler mensagens SMS recebidas.

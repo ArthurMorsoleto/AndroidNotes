@@ -1,0 +1,33 @@
+URIs: 
+
+    identificadores e manipuladores recursos
+    acessar, compartilhar info entre componentes android ou apps
+
+Estrutura de string
+    scheme://authority/path?query
+    http, content, file
+
+Principais tipos de URIs no Android
+
+    1. Content URIs (content://)
+
+        contatos, imagens ou arquivos.
+        se não me engano, é para uso temporário
+
+    2. File URIs (file://) - descontinuado
+
+        arquivos locais no dispositivo
+        utilizar o FileProvider 
+
+    3. HTTP ou HTTPS URIs (http:// ou https://)
+
+        URLs para acessar recursos na internet.
+
+        val uri = Uri.parse("https://www.google.com/search?q=android")
+        println("Host: ${uri.host}, Query: ${uri.query}") 
+        // Host: www.google.com, Query: q=android
+
+
+    
+
+
