@@ -1,0 +1,73 @@
+Singleton
+Factory
+Builder
+Facade
+Dependency Injection
+Adapter
+
+1. Singleton
+    apenas uma instância de um classe em todo o ciclo de vida do aplicativo.
+    ex: algum tipo de manager que precise ser acessado pelo app todo
+
+2. Factory
+    criar um objeto sem saber o processo de criação. 
+    O padrão Factory cria objetos sem expor o processo de criação.
+    Ex: Factory que recebe um valor de um enum e devolve uma instacia de um objeto de acordo com o valor passado
+    class FragmentFactory {
+        companion object {
+            fun createFragment(type: String): Fragment {
+                return when (type) {
+                    "Home" -> HomeFragment()
+                    "Profile" -> ProfileFragment()
+                    "Settings" -> SettingsFragment()
+                    else -> throw IllegalArgumentException("Unknown fragment type")
+                }
+            }
+        }
+    }
+
+3. Builder: 
+    passo a passo para construir objetos complexos
+
+    fun showDialog(context: Context) {
+        val dialog = AlertDialog.Builder(context)
+            .setTitle("Alerta")
+            .setMessage("Deseja continuar?")
+            .setPositiveButton("Sim") { dialog, _ -> dialog.dismiss() }
+            .setNegativeButton("Não") { dialog, _ -> dialog.dismiss() }
+            .create()
+
+        dialog.show()
+    }
+
+4. Facade
+    interface simples que abstrai a complexidade.
+    ex: repository
+
+5. Dependency Injection
+    injeta dependências em vez de criá-las diretamente.
+    diminuir o acoplamento entre as classes de um sistema -> código mais flexível e fácil de testar
+    
+
+6. Adapter
+    permitir que classes incompatíveis trabalhem juntas.
+    Exemplo: Adapter para RecyclerView -> uma lista que é transformada/adaptada para funcionar com um RecyclerView
+
+    class MyAdapter(private val items: List<String>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+
+        class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            val textView: TextView = itemView.findViewById(R.id.textView)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
+            return MyViewHolder(view)
+        }
+
+        override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+            holder.textView.text = items[position]
+        }
+
+        override fun getItemCount() = items.size
+    }
+
