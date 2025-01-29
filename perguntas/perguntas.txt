@@ -1,5 +1,12 @@
 alinhamento com os valores e objetivos da empresa
 
+- Haber
+	1. equipe:
+		- quantas pessoas? quantos devs Android? vaga nova? expansão do time?
+		- que perfil vcs estão procurando para vaga?		
+	2. principais desafios que a equipe está enfrentando atualmente?
+	3. qual a parte que vc mais gosta de trabalhar no Meli?
+
 * Sobre Projetos e Tecnologia
 	1. Overview sobre o projeto
 	2. Quais tecnologias, ferramentas ou metodologias são mais utilizadas no projeto?
@@ -14,7 +21,6 @@ alinhamento com os valores e objetivos da empresa
 
 * Sobre a Empresa e a Cultura
 	1. Quais são os principais valores que guiam as decisões e os projetos da empresa?
-
 
 * Sobre o Ambiente de Trabalho
 	1. Eu vi uns vídeos sobre a estrutura do MeliCidade, fiquei impressionado com tamanho do lugar, e com o senso de acolhimento para os funcionários. Confesso que, como funcionário de consultoria, já me senti intimidado dentro do itau, infelizmente alguns colabores não são tão acolhedores com pessoas de fora.
